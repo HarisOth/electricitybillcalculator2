@@ -28,7 +28,15 @@ Android application for calculating monthly electricity bills. Developed for ICT
 **Formula**: `Final Cost = Total Charges - (Total Charges × Rebate %)`
 
 ##  Application Screenshots
-*(Add screenshots here later. You can upload images to GitHub and link them)*
+
+| Main Screen | History | Details | About Page |
+|-------------|---------|---------|------------|
+| ![Main](ss1.png) | ![History](screenshots/history.png) | ![Details](screenshots/details.png) | ![About](screenshots/about.png) |
+
+**Main Screen**: Calculate electricity bill with month selection, unit input, and rebate slider
+**History**: View all saved calculations in list format
+**Details**: Detailed view of individual bill calculation
+**About**: Student information and GitHub repository link
 
 ##  Installation & Usage
 1. On GitHub, click **"Code"** → **"Download ZIP"**
