@@ -35,9 +35,9 @@ Android application for calculating monthly electricity bills. Developed for ICT
 | **4. Bill Details**<br>![Details](ss4.png) | **5. About Page**<br>![About](ss5.png) | **6. GitHub Link in About Page**<br>![GitHub](ss6.png) |
 
 **1. App Icon** - Application logo and splash screen  
-**2. Main Screen** - Input month, electricity units, and adjust rebate (0-5%)  
+**2. Main Screen** - Input month, electricity units and adjust rebate (0-5%)  
 **3. History List** - All saved calculations displayed in chronological order  
-**4. Bill Details** - Complete breakdown showing month, units, charges, rebate, and final cost  
+**4. Bill Details** - Complete breakdown showing month, units, charges, rebate and final cost  
 **5. About Page** - Student information including name, ID, course details  
 **6. GitHub Link** - Clickable URL that opens the application's GitHub repository
 
