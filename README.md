@@ -3,7 +3,7 @@
 Android application for calculating monthly electricity bills. Developed for ICT602 Mobile Technology assignment.
 
 ##  Features
-- **Calculate Electricity Bill** with TNB block tariff system
+- **Calculate Electricity Bill**
 - **Month Selection** (January - December) via spinner
 - **Adjustable Rebate** (0% - 5%) using seek bar
 - **Local Database Storage** using SQLite to save calculation history
