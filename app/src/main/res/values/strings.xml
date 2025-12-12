@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Name -->
+    <string name="app_name">Electricity Bill Calculator</string>
+
+    <!-- Months Array -->
+    <string-array name="months">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
+
+    <!-- Labels -->
+    <string name="label_selected_rebate">Selected Rebate: %d%%</string>
+    <string name="label_month">Month:</string>
+    <string name="label_total_charges">Total Charges: RM %.2f</string>
+    <string name="label_rebate">Rebate: %d%%</string>
+    <string name="label_final_cost">Final Cost: RM %.2f</string>
+
+    <!-- Button Texts -->
+    <string name="btn_calculate">CALCULATE BILL</string>
+    <string name="btn_history">VIEW HISTORY</string>
+    <string name="btn_about">ABOUT</string>
+    <string name="btn_back_to_main">BACK TO MAIN</string>
+    <string name="btn_back_to_history">BACK TO HISTORY</string>
+
+    <!-- About Page Strings -->
+    <string name="student_name">MOHAMMAD HARIS HAIQAL BIN OTHMAN</string>
+    <string name="student_id">2023213578</string>
+    <string name="course_code">CDCS240</string>
+    <string name="course_name">INFORMATION TECHNOLOGY</string>
+    <string name="app_version">Version 1.0</string>
+    <string name="copyright">© 2024 Electricity Bill Calculator. All rights reserved.</string>
+    <string name="website_url">https://github.com/yourusername/electricity-bill-calculator</string>
+
+    <!-- App Description -->
+    <string name="app_description">This application helps users calculate electricity bills based on TNB tariff rates. Users can select month, enter electricity units, apply rebate percentage, and save calculation history.</string>
+
+    <!-- Features -->
+    <string name="features">• Calculate electricity bill with TNB tariff\n• Select month from dropdown\n• Adjustable rebate percentage (0-5%)\n• Save calculation history\n• View detailed bill information\n• Data stored in local database</string>
+
+    <!-- History Page -->
+    <string name="history_item_format">%s - RM %.2f</string>
+    <string name="no_history">No calculation history available</string>
+
+    <!-- Error Messages -->
+    <string name="error_enter_units">Please enter electricity units</string>
+    <string name="error_units_positive">Units must be greater than 0</string>
+    <string name="error_invalid_number">Please enter a valid number</string>
+    <string name="success_saved">Calculation saved successfully!</string>
+    <string name="error_save_failed">Failed to save: %s</string>
+</resources>

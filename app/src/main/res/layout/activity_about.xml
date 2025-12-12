@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <!-- Header dengan Icon -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="25dp">
+
+            <ImageView
+                android:id="@+id/imgAboutLogo"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/logo"
+                android:layout_marginEnd="15dp"
+                android:contentDescription="About App" />
+
+            <TextView
+                android:id="@+id/txtAboutTitle"
+                android:text="About"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="#2196F3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <!-- App Name -->
+        <TextView
+            android:id="@+id/txtAppName"
+            android:text="Electricity Bill Calculator"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#2196F3"
+            android:layout_marginBottom="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <!-- Version -->
+        <TextView
+            android:id="@+id/txtAppVersion"
+            android:text="Version 1.0"
+            android:textSize="14sp"
+            android:textColor="#757575"
+            android:layout_marginBottom="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <!-- Student Information Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#E3F2FD"
+            android:padding="20dp"
+            android:elevation="4dp"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:id="@+id/txtStudentInfoTitle"
+                android:text="Student Information"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#2196F3"
+                android:layout_marginBottom="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <!-- Full Name -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:id="@+id/txtStudentNameLabel"
+                    android:text="Full Name:"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/txtStudentName"
+                    android:text="MOHAMMAD HARIS HAIQAL BIN OTHMAN"
+                    android:textSize="14sp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+            <!-- Student ID -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:id="@+id/txtStudentIdLabel"
+                    android:text="Student ID:"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/txtStudentId"
+                    android:text="2023213578"
+                    android:textSize="14sp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+            <!-- Course Code -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:id="@+id/txtCourseCodeLabel"
+                    android:text="Course Code:"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/txtCourseCode"
+                    android:text="CDCS240"
+                    android:textSize="14sp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+            <!-- Course Name -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:id="@+id/txtCourseNameLabel"
+                    android:text="Course Name:"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/txtCourseName"
+                    android:text="INFORMATION TECHNOLOGY"
+                    android:textSize="14sp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- App Description Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#E3F2FD"
+            android:padding="20dp"
+            android:elevation="4dp"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:id="@+id/txtAppDescriptionTitle"
+                android:text="App Description"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#2196F3"
+                android:layout_marginBottom="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/txtAppDescription"
+                android:text="This application helps users calculate electricity bills based on TNB tariff rates. Users can select month, enter electricity units, apply rebate percentage, and save calculation history to Firebase."
+                android:textSize="14sp"
+                android:lineSpacingExtra="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <!-- Features Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#E3F2FD"
+            android:padding="20dp"
+            android:elevation="4dp"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:id="@+id/txtFeaturesTitle"
+                android:text="Features"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#2196F3"
+                android:layout_marginBottom="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/txtFeatures"
+                android:text="• Calculate electricity bill with TNB tariff\n• Select month from dropdown\n• Adjustable rebate percentage (0-5%)\n• Save calculation history\n• View detailed bill information\n• Data stored in Firebase Cloud"
+                android:textSize="14sp"
+                android:lineSpacingExtra="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <!-- Website URL -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFF3E0"
+            android:padding="15dp"
+            android:elevation="2dp"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:id="@+id/txtWebsiteTitle"
+                android:text="Application Website"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#FF9800"
+                android:layout_marginBottom="8dp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/txtWebsite"
+                android:text="https://github.com/yourusername/electricity-bill-calculator"
+                android:textSize="14sp"
+                android:textColor="#2196F3"
+                android:gravity="center"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:textStyle="italic"/>
+        </LinearLayout>
+
+        <!-- Copyright Statement -->
+        <TextView
+            android:id="@+id/txtCopyright"
+            android:text="© 2024 Electricity Bill Calculator. All rights reserved."
+            android:textSize="12sp"
+            android:textColor="#757575"
+            android:gravity="center"
+            android:layout_marginBottom="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- Back Button -->
+        <Button
+            android:id="@+id/btnBackToMain"
+            android:text="BACK TO MAIN"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:background="#2196F3"
+            android:textColor="@android:color/white"
+            android:padding="14dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</ScrollView>

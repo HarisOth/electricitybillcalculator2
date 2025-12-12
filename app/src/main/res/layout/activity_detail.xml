@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Header dengan Icon -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="20dp">
+
+            <ImageView
+                android:id="@+id/imgDetailLogo"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/logo"
+                android:layout_marginEnd="15dp"
+                android:contentDescription="Bill Details" />
+
+            <TextView
+                android:id="@+id/txtDetailTitle"
+                android:text="Bill Details"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="#2196F3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <!-- Detail Card -->
+        <LinearLayout
+            android:id="@+id/layoutDetailCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#E3F2FD"
+            android:padding="20dp"
+            android:elevation="4dp">
+
+            <!-- Month -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:id="@+id/txtLabelMonth"
+                    android:text="Month:"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/txtDetailMonth"
+                    android:text="January"
+                    android:textSize="16sp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+            <!-- Unit -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:id="@+id/txtLabelUnit"
+                    android:text="Unit Used:"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/txtDetailUnit"
+                    android:text="300.0 kWh"
+                    android:textSize="16sp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+            <!-- Total Charges -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:id="@+id/txtLabelCharges"
+                    android:text="Total Charges:"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/txtDetailCharges"
+                    android:text="RM 65.40"
+                    android:textSize="16sp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+            <!-- Rebate -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:id="@+id/txtLabelRebate"
+                    android:text="Rebate:"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/txtDetailRebate"
+                    android:text="0%"
+                    android:textSize="16sp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+            <!-- Final Cost -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp"
+                android:paddingTop="12dp"
+                android:background="@android:color/white"
+                android:padding="12dp">
+
+                <TextView
+                    android:id="@+id/txtLabelFinalCost"
+                    android:text="Final Cost:"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#FF9800"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/txtDetailFinalCost"
+                    android:text="RM 65.40"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#FF9800"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAlignment="textEnd" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Back Button -->
+        <Button
+            android:id="@+id/btnBack"
+            android:text="BACK TO HISTORY"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:background="#2196F3"
+            android:textColor="@android:color/white"
+            android:padding="14dp"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</ScrollView>
