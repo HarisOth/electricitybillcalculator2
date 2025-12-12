@@ -1,8 +1,8 @@
-# ⚡ Electricity Bill Calculator 2
+#  Electricity Bill Calculator 
 
-Android application for calculating monthly electricity bills based on TNB tariff rates. Developed for ICT602 Mobile Technology assignment.
+Android application for calculating monthly electricity bills. Developed for ICT602 Mobile Technology assignment.
 
-## 📱 Features
+##  Features
 - **Calculate Electricity Bill** with TNB block tariff system
 - **Month Selection** (January - December) via spinner
 - **Adjustable Rebate** (0% - 5%) using seek bar
@@ -10,15 +10,14 @@ Android application for calculating monthly electricity bills based on TNB tarif
 - **Detailed View** of each bill calculation
 - **User-Friendly Interface** with custom theme and icons
 
-## 🏗️ Architecture
+##  Architecture
 - **Language**: Java
 - **Minimum SDK**: API 21 (Android 5.0)
 - **Database**: SQLite (Local/Offline)
 - **Architecture**: MVC Pattern
 - **Tools**: Android Studio, Git, GitHub
 
-## 📊 Tariff Calculation Method
-Based on TNB tariff blocks (sen/kWh):
+##  Tariff Calculation Method
 | Block | Rate (sen/kWh) |
 |-------|----------------|
 | 1-200 kWh | 21.8 |
@@ -28,10 +27,20 @@ Based on TNB tariff blocks (sen/kWh):
 
 **Formula**: `Final Cost = Total Charges - (Total Charges × Rebate %)`
 
-## 📸 Application Screenshots
+##  Application Screenshots
 *(Add screenshots here later. You can upload images to GitHub and link them)*
 
-## 🚀 Installation & Usage
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/HarisOth/electricitybillcalculator2.git
+##  Installation & Usage
+
+### Method 1: Download ZIP (Easiest)
+1. On GitHub, click **"Code"** → **"Download ZIP"**
+2. Extract the ZIP file on your computer
+3. Open Android Studio → **"Open"** → Select the extracted folder
+4. Wait for Gradle sync to complete
+5. Click **Run** (▶) button to launch on emulator/device
+
+### Method 2: Clone with Git
+```bash
+git clone https://github.com/HarisOth/electricitybillcalculator2.git
+cd electricitybillcalculator2
+# Then open with Android Studio
