@@ -1,201 +1,306 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
-    android:background="@android:color/white">
+    android:background="#F5F5F5"
+    tools:context=".DetailActivity">
 
     <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
-        <!-- Header dengan Icon -->
-        <LinearLayout
+        <!-- Header dengan Logo dan Nama App -->
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="20dp">
+            android:layout_marginBottom="20dp"
+            app:cardBackgroundColor="#2196F3"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="8dp">
 
-            <ImageView
-                android:id="@+id/imgDetailLogo"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/logo"
-                android:layout_marginEnd="15dp"
-                android:contentDescription="Bill Details" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="20dp">
 
-            <TextView
-                android:id="@+id/txtDetailTitle"
-                android:text="Bill Details"
-                android:textSize="22sp"
-                android:textStyle="bold"
-                android:textColor="#2196F3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
+                <ImageView
+                    android:id="@+id/imgDetailLogo"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/logo"
+                    android:layout_marginEnd="15dp"
+                    android:contentDescription="KiraBill Logo"
+                    android:tint="@null" />
 
-        <!-- Detail Card -->
-        <LinearLayout
-            android:id="@+id/layoutDetailCard"
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txtDetailTitle"
+                        android:text="KiraBill"
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Bill Details Card -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="#E3F2FD"
-            android:padding="20dp"
-            android:elevation="4dp">
+            android:layout_marginBottom="20dp"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp">
 
-            <!-- Month -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="12dp">
+                android:orientation="vertical"
+                android:padding="20dp">
 
                 <TextView
-                    android:id="@+id/txtLabelMonth"
-                    android:text="Month:"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-
-                <TextView
-                    android:id="@+id/txtDetailMonth"
-                    android:text="January"
-                    android:textSize="16sp"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textAlignment="textEnd" />
-            </LinearLayout>
-
-            <!-- Unit -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="12dp">
-
-                <TextView
-                    android:id="@+id/txtLabelUnit"
-                    android:text="Unit Used:"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-
-                <TextView
-                    android:id="@+id/txtDetailUnit"
-                    android:text="300.0 kWh"
-                    android:textSize="16sp"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textAlignment="textEnd" />
-            </LinearLayout>
-
-            <!-- Total Charges -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="12dp">
-
-                <TextView
-                    android:id="@+id/txtLabelCharges"
-                    android:text="Total Charges:"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-
-                <TextView
-                    android:id="@+id/txtDetailCharges"
-                    android:text="RM 65.40"
-                    android:textSize="16sp"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textAlignment="textEnd" />
-            </LinearLayout>
-
-            <!-- Rebate -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="12dp">
-
-                <TextView
-                    android:id="@+id/txtLabelRebate"
-                    android:text="Rebate:"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-
-                <TextView
-                    android:id="@+id/txtDetailRebate"
-                    android:text="0%"
-                    android:textSize="16sp"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textAlignment="textEnd" />
-            </LinearLayout>
-
-            <!-- Final Cost -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="12dp"
-                android:paddingTop="12dp"
-                android:background="@android:color/white"
-                android:padding="12dp">
-
-                <TextView
-                    android:id="@+id/txtLabelFinalCost"
-                    android:text="Final Cost:"
+                    android:text="Bill Details"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:textColor="#FF9800"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:textColor="#2196F3"
+                    android:gravity="center"
+                    android:layout_marginBottom="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
 
-                <TextView
-                    android:id="@+id/txtDetailFinalCost"
-                    android:text="RM 65.40"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="#FF9800"
-                    android:layout_width="0dp"
+                <!-- Month -->
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textAlignment="textEnd" />
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
+
+                    <TextView
+                        android:text="Month:"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#333333"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/txtDetailMonth"
+                        android:text="January"
+                        android:textSize="16sp"
+                        android:textColor="#2196F3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <!-- Unit -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
+
+                    <TextView
+                        android:text="Unit Used:"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#333333"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/txtDetailUnit"
+                        android:text="300.0 kWh"
+                        android:textSize="16sp"
+                        android:textColor="#2196F3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <!-- Total Charges -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
+
+                    <TextView
+                        android:text="Total Charges:"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#333333"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/txtDetailCharges"
+                        android:text="RM 65.40"
+                        android:textSize="16sp"
+                        android:textColor="#2196F3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <!-- Rebate -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
+
+                    <TextView
+                        android:text="Rebate:"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#333333"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/txtDetailRebate"
+                        android:text="0%"
+                        android:textSize="16sp"
+                        android:textColor="#2196F3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <!-- Final Cost Highlight -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="#E8F5E9"
+                    android:padding="15dp"
+                    app:cornerRadius="8dp"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:text="Final Cost:"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#2E7D32"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/txtDetailFinalCost"
+                        android:text="RM 65.40"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#2E7D32"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
             </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-        </LinearLayout>
-
-        <!-- Back Button -->
-        <Button
-            android:id="@+id/btnBack"
-            android:text="BACK TO HISTORY"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:background="#2196F3"
-            android:textColor="@android:color/white"
-            android:padding="14dp"
-            android:layout_marginTop="30dp"
+        <!-- Action Buttons Card -->
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:weightSum="3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <!-- Back Button -->
+                    <Button
+                        android:id="@+id/btnBack"
+                        android:text="BACK"
+                        android:layout_weight="1"
+                        android:backgroundTint="#2196F3"
+                        android:textColor="@android:color/white"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:padding="14dp"
+                        android:layout_marginEnd="8dp" />
+
+                    <!-- Edit Button -->
+                    <Button
+                        android:id="@+id/btnEdit"
+                        android:text="EDIT"
+                        android:layout_weight="1"
+                        android:backgroundTint="#4CAF50"
+                        android:textColor="@android:color/white"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:padding="14dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp" />
+
+                    <!-- Delete Button -->
+                    <Button
+                        android:id="@+id/btnDelete"
+                        android:text="DELETE"
+                        android:layout_weight="1"
+                        android:backgroundTint="#F44336"
+                        android:textColor="@android:color/white"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:padding="14dp"
+                        android:layout_marginStart="8dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Footer Note -->
+        <TextView
+            android:text="© 2024 KiraBill - Electricity Bill Calculator"
+            android:textSize="12sp"
+            android:textColor="#757575"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
 </ScrollView>

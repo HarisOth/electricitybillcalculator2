@@ -7,25 +7,38 @@ import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
-public class MainActivity extends AppCompatActivity {
+public class EditActivity extends AppCompatActivity {
 
     private Spinner spinnerMonth;
     private SeekBar seekBarRebate;
-    private TextView txtRebateValue, txtMonthResult, txtChargesResult, txtRebateResult, txtFinalResult;
+    private TextView txtRebateValue;
     private EditText inputUnit;
-    private Button btnCalculate, btnHistory, btnAbout;
-    private CardView cardInput, cardResult;
+    private Button btnSave, btnCancel;
+    private CardView cardEditForm;
+
     private DatabaseHelper dbHelper;
+    private BillModel currentBill;
+    private int billId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_edit);
+
+        initializeViews();
 
         dbHelper = new DatabaseHelper(this);
-        initializeViews();
+        billId = getIntent().getIntExtra("BILL_ID", -1);
+
+        if (billId == -1) {
+            Toast.makeText(this, "Invalid bill ID", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
+
         setupSpinner();
         setupSeekBar();
+        loadBillData();
         setupButtonListeners();
     }
 
@@ -34,19 +47,9 @@ public class MainActivity extends AppCompatActivity {
         seekBarRebate = findViewById(R.id.seekBarRebate);
         txtRebateValue = findViewById(R.id.txtRebateValue);
         inputUnit = findViewById(R.id.inputUnit);
-        btnCalculate = findViewById(R.id.btnCalculate);
-        btnHistory = findViewById(R.id.btnHistory);
-        btnAbout = findViewById(R.id.btnAbout);
-
-        // Card views
-        cardInput = findViewById(R.id.cardInput);
-        cardResult = findViewById(R.id.cardResult);
-
-        // Result TextViews
-        txtMonthResult = findViewById(R.id.txtMonthResult);
-        txtChargesResult = findViewById(R.id.txtChargesResult);
-        txtRebateResult = findViewById(R.id.txtRebateResult);
-        txtFinalResult = findViewById(R.id.txtFinalResult);
+        btnSave = findViewById(R.id.btnSave);
+        btnCancel = findViewById(R.id.btnCancel);
+        cardEditForm = findViewById(R.id.cardEditForm);
     }
 
     private void setupSpinner() {
@@ -57,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
         );
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerMonth.setAdapter(adapter);
-        spinnerMonth.setSelection(0);
     }
 
     private void setupSeekBar() {
@@ -73,13 +75,56 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void setupButtonListeners() {
-        btnCalculate.setOnClickListener(v -> calculateBill());
-        btnHistory.setOnClickListener(v -> startActivity(new Intent(this, HistoryActivity.class)));
-        btnAbout.setOnClickListener(v -> startActivity(new Intent(this, AboutActivity.class)));
+    private void loadBillData() {
+        currentBill = dbHelper.getBill(billId);
+
+        if (currentBill != null) {
+            // Set month in spinner
+            String month = currentBill.getMonth();
+            if (month != null && !month.isEmpty()) {
+                String monthName = extractMonthName(month);
+                ArrayAdapter<CharSequence> adapter = (ArrayAdapter<CharSequence>) spinnerMonth.getAdapter();
+                int position = adapter.getPosition(monthName);
+                if (position >= 0) {
+                    spinnerMonth.setSelection(position);
+                }
+            }
+
+            // Set unit
+            inputUnit.setText(String.valueOf(currentBill.getUnit()));
+
+            // Set rebate (convert double to int for seekbar)
+            int rebateInt = (int) Math.round(currentBill.getRebate());
+            seekBarRebate.setProgress(rebateInt);
+            txtRebateValue.setText(getString(R.string.label_selected_rebate, rebateInt));
+        }
     }
 
-    private void calculateBill() {
+    private String extractMonthName(String monthString) {
+        if (monthString.contains(" ")) {
+            return monthString.split(" ")[0];
+        }
+        return monthString;
+    }
+
+    private void setupButtonListeners() {
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateBill();
+            }
+        });
+
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setResult(RESULT_CANCELED);
+                finish();
+            }
+        });
+    }
+
+    private void updateBill() {
         String selectedMonth = spinnerMonth.getSelectedItem().toString();
         String unitInputStr = inputUnit.getText().toString().trim();
 
@@ -101,8 +146,23 @@ public class MainActivity extends AppCompatActivity {
             double totalCharges = calculateChargesBasedOnTariff(totalUnit);
             double finalCost = totalCharges - (totalCharges * rebatePercentage / 100.0);
 
-            displayResults(selectedMonth, totalCharges, rebatePercentage, finalCost);
-            saveToDatabase(selectedMonth, totalUnit, totalCharges, rebatePercentage, finalCost);
+            BillModel updatedBill = new BillModel();
+            updatedBill.setId(billId);
+            updatedBill.setMonth(selectedMonth);
+            updatedBill.setUnit(totalUnit);
+            updatedBill.setRebate(rebatePercentage);
+            updatedBill.setTotalCharges(totalCharges);
+            updatedBill.setFinalCost(finalCost);
+
+            boolean isUpdated = dbHelper.updateBill(updatedBill);
+
+            if (isUpdated) {
+                Toast.makeText(this, "Bill updated successfully", Toast.LENGTH_SHORT).show();
+                setResult(RESULT_OK);
+                finish();
+            } else {
+                Toast.makeText(this, "Failed to update bill", Toast.LENGTH_SHORT).show();
+            }
 
         } catch (NumberFormatException e) {
             inputUnit.setError(getString(R.string.error_invalid_number));
@@ -116,31 +176,6 @@ public class MainActivity extends AppCompatActivity {
         else if (unit <= 600) return (200 * 0.218) + (100 * 0.334) + ((unit - 300) * 0.516);
         else if (unit <= 900) return (200 * 0.218) + (100 * 0.334) + (300 * 0.516) + ((unit - 600) * 0.546);
         else return (200 * 0.218) + (100 * 0.334) + (300 * 0.516) + (300 * 0.546) + ((unit - 900) * 0.546);
-    }
-
-    private void displayResults(String month, double totalCharges, int rebate, double finalCost) {
-        txtMonthResult.setText(getString(R.string.label_month) + " " + month);
-        txtChargesResult.setText(String.format(getString(R.string.label_total_charges), totalCharges));
-        txtRebateResult.setText(String.format(getString(R.string.label_rebate), rebate));
-        txtFinalResult.setText(String.format(getString(R.string.label_final_cost), finalCost));
-        cardResult.setVisibility(View.VISIBLE);
-
-        // Scroll to result
-        cardResult.post(() -> {
-            cardResult.requestFocus();
-            cardResult.requestLayout();
-        });
-    }
-
-    private void saveToDatabase(String month, double unit, double totalCharges, int rebate, double finalCost) {
-        BillModel bill = new BillModel(month, unit, totalCharges, rebate, finalCost);
-        long id = dbHelper.addBill(bill);
-
-        if (id != -1) {
-            showToast(getString(R.string.success_saved));
-        } else {
-            showToast(getString(R.string.error_save_failed, "Database error"));
-        }
     }
 
     private void showToast(String msg) {

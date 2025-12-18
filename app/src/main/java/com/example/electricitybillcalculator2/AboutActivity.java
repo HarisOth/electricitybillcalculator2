@@ -3,18 +3,22 @@ package com.example.electricitybillcalculator2;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.content.res.Resources;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.text.HtmlCompat;
+import androidx.cardview.widget.CardView;
 
 public class AboutActivity extends AppCompatActivity {
 
     private Button btnBackToMain;
-    private TextView txtWebsite, txtStudentName, txtStudentId, txtCourseCode, txtCourseName;
-    private TextView txtCopyright, txtAppDescription, txtFeatures, txtAppVersion;
+    private TextView txtWebsite;
+    private ImageView imgStudentPhoto;
+    private CardView cardStudentInfo, cardAppDescription, cardFeatures, cardInstructions, cardWebsite;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +26,7 @@ public class AboutActivity extends AppCompatActivity {
         setContentView(R.layout.activity_about);
 
         initializeViews();
-        setTextsFromResources();
+        loadStudentPhoto();
         setupButtonListeners();
         setupWebsiteLink();
     }
@@ -30,30 +34,31 @@ public class AboutActivity extends AppCompatActivity {
     private void initializeViews() {
         btnBackToMain = findViewById(R.id.btnBackToMain);
         txtWebsite = findViewById(R.id.txtWebsite);
-        txtStudentName = findViewById(R.id.txtStudentName);
-        txtStudentId = findViewById(R.id.txtStudentId);
-        txtCourseCode = findViewById(R.id.txtCourseCode);
-        txtCourseName = findViewById(R.id.txtCourseName);
-        txtCopyright = findViewById(R.id.txtCopyright);
-        txtAppDescription = findViewById(R.id.txtAppDescription);
-        txtFeatures = findViewById(R.id.txtFeatures);
-        txtAppVersion = findViewById(R.id.txtAppVersion);
+        imgStudentPhoto = findViewById(R.id.imgStudentPhoto);
+
+        // Card views
+        cardStudentInfo = findViewById(R.id.cardStudentInfo);
+        cardAppDescription = findViewById(R.id.cardAppDescription);
+        cardFeatures = findViewById(R.id.cardFeatures);
+        cardInstructions = findViewById(R.id.cardInstructions);
+        cardWebsite = findViewById(R.id.cardWebsite);
     }
 
-    private void setTextsFromResources() {
-        btnBackToMain.setText(getString(R.string.btn_back_to_main));
-
-        // Student Information
-        txtStudentName.setText(getString(R.string.student_name));
-        txtStudentId.setText(getString(R.string.student_id));
-        txtCourseCode.setText(getString(R.string.course_code));
-        txtCourseName.setText(getString(R.string.course_name));
-
-        // App Information
-        txtAppVersion.setText(getString(R.string.app_version));
-        txtAppDescription.setText(getString(R.string.app_description));
-        txtFeatures.setText(getString(R.string.features));
-        txtCopyright.setText(getString(R.string.copyright));
+    private void loadStudentPhoto() {
+        try {
+            // Try to load student photo from drawable
+            imgStudentPhoto.setImageResource(R.drawable.profile);
+        } catch (Resources.NotFoundException e) {
+            // If profile image not found, use app logo as placeholder
+            try {
+                imgStudentPhoto.setImageResource(R.drawable.logo);
+                Toast.makeText(this, "Using default profile image", Toast.LENGTH_SHORT).show();
+            } catch (Resources.NotFoundException e2) {
+                // If logo also not found, use a simple colored background
+                imgStudentPhoto.setBackgroundColor(0xFFE3F2FD);
+                imgStudentPhoto.setImageResource(android.R.drawable.ic_menu_gallery);
+            }
+        }
     }
 
     private void setupButtonListeners() {
@@ -65,9 +70,8 @@ public class AboutActivity extends AppCompatActivity {
 
         txtWebsite.setOnClickListener(v -> openWebsite(url));
 
-        // Add underline to indicate it's clickable
-        String websiteText = "<u>" + url + "</u>";
-        txtWebsite.setText(HtmlCompat.fromHtml(websiteText, HtmlCompat.FROM_HTML_MODE_LEGACY));
+        // Make it look clickable
+        txtWebsite.setTextColor(getResources().getColor(android.R.color.holo_blue_dark));
     }
 
     private void openWebsite(String url) {

@@ -6,41 +6,35 @@
         android:allowBackup="true"
         android:icon="@drawable/logo"
         android:label="@string/app_name"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
-
-        <!-- Splash Screen sebagai launcher -->
+        <activity
+            android:name=".EditActivity"
+            android:exported="false" />
+        <!-- Splash Activity -->
         <activity
             android:name=".SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- Main Activity -->
+        </activity> <!-- Main Activity -->
         <activity
             android:name=".MainActivity"
-            android:exported="true" />
-
-        <!-- History Activity -->
+            android:exported="true" /> <!-- History Activity -->
         <activity
             android:name=".HistoryActivity"
-            android:exported="false" />
-
-        <!-- Detail Activity -->
+            android:exported="false" /> <!-- Detail Activity -->
         <activity
             android:name=".DetailActivity"
-            android:exported="false" />
-
-        <!-- About Activity -->
+            android:exported="false" /> <!-- About Activity -->
         <activity
             android:name=".AboutActivity"
             android:exported="false" />
-
     </application>
 
 </manifest>

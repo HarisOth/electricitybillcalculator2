@@ -5,14 +5,13 @@ public class BillModel {
     private String month;
     private double unit;
     private double totalCharges;
-    private int rebate;
+    private double rebate; // Changed from int to double
     private double finalCost;
 
-    // Constructor kosong
+    // Constructors
     public BillModel() {}
 
-    // Constructor dengan parameter
-    public BillModel(String month, double unit, double totalCharges, int rebate, double finalCost) {
+    public BillModel(String month, double unit, double totalCharges, double rebate, double finalCost) {
         this.month = month;
         this.unit = unit;
         this.totalCharges = totalCharges;
@@ -20,22 +19,52 @@ public class BillModel {
         this.finalCost = finalCost;
     }
 
-    // Getter dan Setter
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
+    // Getters and Setters
+    public int getId() {
+        return id;
+    }
 
-    public String getMonth() { return month; }
-    public void setMonth(String month) { this.month = month; }
+    public void setId(int id) {
+        this.id = id;
+    }
 
-    public double getUnit() { return unit; }
-    public void setUnit(double unit) { this.unit = unit; }
+    public String getMonth() {
+        return month;
+    }
 
-    public double getTotalCharges() { return totalCharges; }
-    public void setTotalCharges(double totalCharges) { this.totalCharges = totalCharges; }
+    public void setMonth(String month) {
+        this.month = month;
+    }
 
-    public int getRebate() { return rebate; }
-    public void setRebate(int rebate) { this.rebate = rebate; }
+    public double getUnit() {
+        return unit;
+    }
 
-    public double getFinalCost() { return finalCost; }
-    public void setFinalCost(double finalCost) { this.finalCost = finalCost; }
+    public void setUnit(double unit) {
+        this.unit = unit;
+    }
+
+    public double getTotalCharges() {
+        return totalCharges;
+    }
+
+    public void setTotalCharges(double totalCharges) {
+        this.totalCharges = totalCharges;
+    }
+
+    public double getRebate() {
+        return rebate;
+    }
+
+    public void setRebate(double rebate) {
+        this.rebate = rebate;
+    }
+
+    public double getFinalCost() {
+        return finalCost;
+    }
+
+    public void setFinalCost(double finalCost) {
+        this.finalCost = finalCost;
+    }
 }
