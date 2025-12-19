@@ -1,49 +1,68 @@
-#  Electricity Bill Calculator 
+# KiraBill - Electricity Bill Calculator
 
-Android application for calculating monthly electricity bills. Developed for ICT602 Mobile Technology assignment.
+## Overview
+KiraBill is a Android application designed for calculating monthly electricity bills. Developed as a mobile technology assignment, this app showcases practical implementation of Android development concepts with a focus on user experience and data management.
 
-##  Features
-- **Calculate Electricity Bill**
-- **Month Selection** (January - December)
-- **Adjustable Rebate** (0% - 5%)
-- **Local Database Storage** using SQLite
-- **Detailed View**
-- **User-Friendly Interface**
+## Features
+- **Accurate Bill Calculation** - Uses standard electricity tariffs for precise calculations
+- **Intuitive Month Selection** - Dropdown interface for easy month selection
+- **Dynamic Rebate Adjustment** - Slider for 0% to 5% rebate with real-time updates
+- **Local Data Storage** - SQLite database for offline access
+- **Complete History Tracking** - View all past calculations
+- **Edit & Delete Functionality** - Full CRUD operations for managing records
+- **Professional UI Design** - Card-based material design interface
+- **Student Information Section** - Includes academic details and project information
 
-##  Architecture
-- **Language**: Java
-- **Minimum SDK**: API 21 (Android 5.0)
-- **Database**: SQLite (Local/Offline)
-- **Architecture**: MVC Pattern
-- **Tools**: Android Studio, Git, GitHub
+## Architecture
+- **Development Language**: Java
+- **Minimum SDK**: API 21 (Android 5.0 Lollipop)
+- **Database**: SQLite (Local Storage)
+- **Design Pattern**: Model-View-Controller (MVC)
+- **Development Environment**: Android Studio
+- **Version Control**: Git & GitHub
 
-##  Tariff Calculation Method
-| Block | Rate (sen/kWh) |
-|-------|----------------|
-| 1-200 kWh | 21.8 |
-| 201-300 kWh | 33.4 |
-| 301-600 kWh | 51.6 |
-| 601-900+ kWh | 54.6 |
+## Tariff Calculation
+| Consumption Block | Rate (RM/kWh) | Description |
+|------------------|---------------|-------------|
+| **First 200 kWh** | 0.218 | Base residential rate |
+| **Next 100 kWh** (201-300) | 0.334 | Medium consumption tier |
+| **Next 300 kWh** (301-600) | 0.516 | High consumption tier |
+| **Above 600 kWh** (601+) | 0.546 | Maximum consumption tier |
 
-**Formula**: `Final Cost = Total Charges - (Total Charges × Rebate %)`
+**Calculation Formula**:  
+`Total Charges = Sum of (Block Usage × Block Rate)`  
+`Final Cost = Total Charges - (Total Charges × Rebate Percentage / 100)`
 
-##  Application Screenshots
+## 📸 Application Screens
 
-| | | |
-|-|-|-|
-| **1. App Icon**<br>![Icon](ss1.png) | **2. Main Screen**<br>![Main](ss2.png) | **3. History List**<br>![History](ss3.png) |
-| **4. Bill Details**<br>![Details](ss4.png) | **5. About Page**<br>![About](ss5.png) | **6. GitHub Link in About Page**<br>![GitHub](ss6.png) |
+### Main Interface
+| Splash Screen | Main Page |
+|-------------|------------------|
+| ![Home Screen](screenshots/ss1.png) | ![Input Screen](screenshots/ss2.png) |
 
-**1. App Icon** - Application logo and splash screen  
-**2. Main Screen** - Input month, electricity units and adjust rebate (0-5%)  
-**3. History List** - All saved calculations displayed in chronological order  
-**4. Bill Details** - Complete breakdown showing month, units, charges, rebate and final cost  
-**5. About Page** - Student information including name, ID, course details  
-**6. GitHub Link** - Clickable URL that opens the application's GitHub repository
+### Data Management
+| History Overview | Bill Details | Edit Record |
+|-----------------|--------------|-------------|
+| ![History List](screenshots/ss3.png) | ![Detailed View](screenshots/ss4.png) | ![Edit Screen](screenshots/ss5.png) |
 
-##  Installation & Usage
-1. On GitHub, click **"Code"** → **"Download ZIP"**
-2. Extract the ZIP file on your computer
-3. Open Android Studio → **"Open"** → Select the extracted folder
-4. Wait for Gradle sync to complete
-5. Click **Run** (▶) button to launch on emulator/device
+### Information & About
+| About Section | GitHub Integration |
+|---------------|-------------------|
+| ![About Page](screenshots/ss6.png) | ![GitHub Link](screenshots/ss7.png) |
+
+## Installation
+
+### Method 1: Android Studio
+1. Click **"Code"** → **"Download ZIP"** on GitHub
+2. Extract the downloaded ZIP file
+3. Open **Android Studio** → Click **"Open"**
+4. Select the extracted project folder
+5. Wait for Gradle sync to complete
+6. Connect device or start emulator
+7. Click **Run** (▶) to install and launch
+
+### Method 2: Git Clone
+```bash
+git clone https://github.com/HarisOth/electricitybillcalculator2.git
+cd electricitybillcalculator2
+# Open in Android Studio
