@@ -29,7 +29,7 @@ The electricity units are charged based on the block used. Refer to the table fo
 | For the first 200 kWh (1 - 200 kWh) per month | 21.8 |
 | For the next 100 kWh (201 - 300 kWh) per month | 33.4 |
 | For the next 300 kWh (301 - 600 kWh) per month | 51.6 |
-| For the next 300 kWh (601 - 1000 kWh) per month onwards | 54.6 |
+| For the next 600 kWh (601 - 1000 kWh) per month onwards | 54.6 |
 
 **Calculation Formula**:  
 `Total Charges = Sum of (Block Usage × Block Rate)`  
