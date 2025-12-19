@@ -22,12 +22,14 @@ KiraBill is a Android application designed for calculating monthly electricity b
 - **Version Control**: Git & GitHub
 
 ## Tariff Calculation
-| Consumption Block | Rate (RM/kWh) | Description |
-|------------------|---------------|-------------|
-| **First 200 kWh** | 0.218 | Base residential rate |
-| **Next 100 kWh** (201-300) | 0.334 | Medium consumption tier |
-| **Next 300 kWh** (301-600) | 0.516 | High consumption tier |
-| **Above 600 kWh** (601+) | 0.546 | Maximum consumption tier |
+The electricity units are charged based on the block used. Refer to the table for the rate.
+
+| Block    | Charges (sen/kWh) |
+|---|---|
+| For the first 200 kWh (1 - 200 kWh) per month    | 21.8    |
+| For the next 100 kWh (201 - 300 kWh) per month    | 33.4    |
+| For the next 300 kWh (301 - 600 kWh) per month    | 51.6    |
+| For the next 300 kWh (601 - 1000 kWh) per month onwards | 54.6    |
 
 **Calculation Formula**:  
 `Total Charges = Sum of (Block Usage × Block Rate)`  
