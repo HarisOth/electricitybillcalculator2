@@ -12,7 +12,7 @@ import java.util.List;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "ElectricityBill.db";
-    private static final int DATABASE_VERSION = 2; // Changed to version 2
+    private static final int DATABASE_VERSION = 2;
     private static final String TABLE_NAME = "bills";
 
     private static final String COLUMN_ID = "id";

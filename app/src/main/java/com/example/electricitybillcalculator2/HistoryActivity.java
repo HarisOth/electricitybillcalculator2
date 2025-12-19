@@ -59,12 +59,9 @@ public class HistoryActivity extends AppCompatActivity {
         String[] displayItems = new String[billList.size()];
         for (int i = 0; i < billList.size(); i++) {
             BillModel bill = billList.get(i);
-            displayItems[i] = String.format("%s - RM %.2f",
-                    bill.getMonth(),
-                    bill.getFinalCost());
+            displayItems[i] = String.format("%s - RM %.2f", bill.getMonth(), bill.getFinalCost());
         }
 
-        // Use simple ArrayAdapter with default layout
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
                 this,
                 android.R.layout.simple_list_item_1,
@@ -105,7 +102,6 @@ public class HistoryActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        // Refresh the list when activity resumes
         loadHistoryFromDatabase();
     }
 

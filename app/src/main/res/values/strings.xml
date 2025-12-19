@@ -31,7 +31,7 @@
     <string name="btn_history">VIEW HISTORY</string>
     <string name="btn_about">ABOUT</string>
     <string name="btn_back_to_main">BACK TO MAIN</string>
-    <string name="btn_back_to_history">BACK</string> <!-- CHANGED: Removed duplicate -->
+    <string name="btn_back_to_history">BACK</string>
 
     <!-- About Page Strings -->
     <string name="student_name">MOHAMMAD HARIS HAIQAL BIN OTHMAN</string>

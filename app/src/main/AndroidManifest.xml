@@ -25,13 +25,13 @@
         </activity> <!-- Main Activity -->
         <activity
             android:name=".MainActivity"
-            android:exported="true" /> <!-- History Activity -->
+            android:exported="true" />
         <activity
             android:name=".HistoryActivity"
-            android:exported="false" /> <!-- Detail Activity -->
+            android:exported="false" />
         <activity
             android:name=".DetailActivity"
-            android:exported="false" /> <!-- About Activity -->
+            android:exported="false" />
         <activity
             android:name=".AboutActivity"
             android:exported="false" />

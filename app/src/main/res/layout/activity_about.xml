@@ -13,7 +13,6 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- Header dengan Logo dan Nama App -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -256,7 +255,7 @@
                     android:layout_height="wrap_content"/>
 
                 <TextView
-                    android:text="This application helps users calculate electricity bills based on tariff rates. Users can select month, enter electricity units, apply rebate percentage, and save calculation history in local database."
+                    android:text="KiraBill is a comprehensive electricity bill calculator application designed to help users efficiently manage and calculate their monthly electricity expenses. The app provides accurate calculations based on standard electricity tariffs, allowing users to input their monthly usage and apply rebates for precise cost estimation."
                     android:textSize="14sp"
                     android:lineSpacingExtra="4dp"
                     android:textColor="#333333"
